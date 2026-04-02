@@ -1,0 +1,26 @@
+{
+    "name" : "美剧Party",
+    "appid" : "__UNI__AB02E70",
+    "description" : "美剧追剧打卡小程序，发现好剧，记录观影，分享感受",
+    "versionName" : "1.0.0",
+    "versionCode" : "100",
+    "transformPx" : false,
+    "mp-weixin" : {
+        "appid" : "wxa2bc2892c7349a7e",
+        "setting" : {
+            "urlCheck" : false
+        },
+        "usingComponents" : true,
+        "permission" : {
+            "scope.writePhotosAlbum" : {
+                "desc" : "保存观剧卡片到相册"
+            }
+        }
+    },
+    "globalStyle" : {
+        "navigationBarTextStyle" : "white",
+        "navigationBarBackgroundColor" : "#0a0a0f",
+        "backgroundColor" : "#0a0a0f"
+    },
+    "vueVersion" : "3"
+}

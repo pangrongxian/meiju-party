@@ -1,0 +1,50 @@
+{
+  "pages": [
+    {
+      "path": "pages/home/index",
+      "style": { "navigationStyle": "custom", "backgroundColor": "#0a0a0f" }
+    },
+    {
+      "path": "pages/schedule/index",
+      "style": { "navigationStyle": "custom", "backgroundColor": "#0a0a0f" }
+    },
+    {
+      "path": "pages/detail/index",
+      "style": { "navigationStyle": "custom", "backgroundColor": "#0a0a0f" }
+    },
+    {
+      "path": "pages/search/index",
+      "style": { "navigationStyle": "custom", "backgroundColor": "#0a0a0f" }
+    },
+    {
+      "path": "pages/ranking/index",
+      "style": { "navigationStyle": "custom", "backgroundColor": "#0a0a0f" }
+    },
+    {
+      "path": "pages/profile/index",
+      "style": { "navigationStyle": "custom", "backgroundColor": "#0a0a0f" }
+    },
+    {
+      "path": "pages/checkin/index",
+      "style": { "navigationStyle": "custom", "backgroundColor": "#0a0a0f" }
+    }
+  ],
+  "tabBar": {
+    "color": "#5a5a72",
+    "selectedColor": "#e8b84b",
+    "backgroundColor": "#12121c",
+    "borderStyle": "black",
+    "list": [
+      { "pagePath": "pages/home/index",     "text": "首页",   "iconPath": "static/icons/home.png",     "selectedIconPath": "static/icons/home_on.png" },
+      { "pagePath": "pages/schedule/index", "text": "播出表", "iconPath": "static/icons/schedule.png", "selectedIconPath": "static/icons/schedule_on.png" },
+      { "pagePath": "pages/ranking/index",  "text": "排行",   "iconPath": "static/icons/rank.png",     "selectedIconPath": "static/icons/rank_on.png" },
+      { "pagePath": "pages/search/index",   "text": "搜索",   "iconPath": "static/icons/search.png",   "selectedIconPath": "static/icons/search_on.png" },
+      { "pagePath": "pages/profile/index",  "text": "我的",   "iconPath": "static/icons/profile.png",  "selectedIconPath": "static/icons/profile_on.png" }
+    ]
+  },
+  "globalStyle": {
+    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#0a0a0f",
+    "backgroundColor": "#0a0a0f"
+  }
+}
