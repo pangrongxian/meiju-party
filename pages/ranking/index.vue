@@ -183,23 +183,26 @@ page { background: #0a0a0f; }
 /* 前三名 */
 .top3     { padding: 24rpx 32rpx 36rpx; background: linear-gradient(to bottom, rgba(232,184,75,0.06), transparent); position: relative; }
 .top3-row { display: flex; align-items: flex-end; justify-content: center; gap: 16rpx; }
+.top3-item { display: flex; flex-direction: column; align-items: center; gap: 4rpx; }
 .top3-item:active { transform: translateY(4rpx); transition: transform 0.2s; }
-.t3-medal { font-size: 40rpx; margin-bottom: -10rpx; z-index: 2; }
+.t3-medal { font-size: 40rpx; margin-bottom: 2rpx; z-index: 2; }
 .t3-cover { border-radius: 16rpx; object-fit: cover; width: 130rpx; height: 174rpx; border: 1rpx solid rgba(255,255,255,0.05); }
 .t3-cover.big { width: 160rpx; height: 213rpx; border: 2rpx solid #e8b84b; box-shadow: 0 0 30rpx rgba(232,184,75,0.4); }
-.t3-title { font-size: 22rpx; color: rgba(255,255,255,0.9); text-align: center; max-width: 160rpx; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; margin-top: 4rpx; }
+.t3-title { font-size: 22rpx; color: rgba(255,255,255,0.9); text-align: center; max-width: 130rpx; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.rank1 .t3-title { max-width: 160rpx; }
 .t3-score { font-size: 24rpx; color: rgba(255,255,255,0.6); font-weight: 800; }
 .t3-score.gold { color: #e8b84b; font-size: 30rpx; text-shadow: 0 0 10rpx rgba(232,184,75,0.3); }
 .rank1 { order: 2; z-index: 10; transform: scale(1.05); } .rank2 { order: 1; } .rank3 { order: 3; }
 
 /* 排行列表 */
-.rank-rows { }
-.rank-row  { display: flex; gap: 18rpx; padding: 16rpx 32rpx; border-bottom: 1rpx solid rgba(255,255,255,0.04); align-items: center; }
+.rank-rows { padding: 0 32rpx; }
+.rank-row  { display: flex; gap: 18rpx; padding: 20rpx 0; border-bottom: 1rpx solid rgba(255,255,255,0.04); align-items: center; }
+.rank-row:last-child { border-bottom: none; }
 .rank-no   { font-size: 30rpx; font-weight: 700; color: rgba(255,255,255,0.25); min-width: 44rpx; text-align: center; flex-shrink: 0; }
 .rank-cover { width: 80rpx; height: 107rpx; border-radius: 8rpx; flex-shrink: 0; }
 .rank-info  { flex: 1; overflow: hidden; }
-.rank-title { display: block; font-size: 26rpx; color: #fff; font-weight: 600; margin-bottom: 6rpx; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.rank-en    { display: block; font-size: 19rpx; color: rgba(255,255,255,0.3); margin-bottom: 10rpx; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rank-title { display: block; font-size: 26rpx; color: #fff; font-weight: 600; margin-bottom: 4rpx; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.rank-en    { display: block; font-size: 19rpx; color: rgba(255,255,255,0.3); margin-bottom: 8rpx; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .rank-tags  { display: flex; gap: 8rpx; flex-wrap: wrap; }
 .rank-tag   { font-size: 18rpx; color: rgba(255,255,255,0.35); background: rgba(255,255,255,0.06); padding: 2rpx 10rpx; border-radius: 4rpx; }
 .rank-tag.seasons { color: rgba(232,184,75,0.7); background: rgba(232,184,75,0.08); }

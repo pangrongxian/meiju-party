@@ -398,7 +398,7 @@ page { background: #0a0a0f; }
 .show-sm { flex-shrink: 0; width: 160rpx; }
 .show-sm-img-wrap { position: relative; width: 160rpx; height: 213rpx; border-radius: 12rpx; overflow: hidden; margin-bottom: 10rpx; box-shadow: 0 6rpx 18rpx rgba(0,0,0,0.4); }
 .show-sm-img   { width: 100%; height: 100%; }
-.show-sm-score { position: absolute; top: 8rpx; right: 8rpx; background: rgba(10,10,15,0.8); border-radius: 6rpx; padding: 3rpx 8rpx; }
+.show-sm-score { position: absolute; top: 8rpx; right: 8rpx; background: rgba(10,10,15,0.8); border-radius: 6rpx; padding: 3rpx 8rpx; display: flex; align-items: center; justify-content: center; }
 .show-sm-score text { font-size: 18rpx; color: #e8b84b; font-weight: 700; }
 .show-sm-title { font-size: 22rpx; color: rgba(255,255,255,0.85); display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .watch-dot { position: absolute; top: 8rpx; left: 8rpx; width: 16rpx; height: 16rpx; border-radius: 50%; }

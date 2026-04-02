@@ -14,12 +14,12 @@
     <scroll-view scroll-y class="scroll-body">
 
       <!-- 头部 -->
-      <view class="hero">
+      <view class="hero" v-if="detail">
         <view class="hero-poster-wrap">
-          <image class="hero-poster" :src="show.cover" mode="aspectFill" />
+          <image class="hero-poster" :src="detail.posterPath || show.cover" mode="aspectFill" />
         </view>
         <view class="hero-info">
-          <text class="hero-title">{{ show.title }}</text>
+          <text class="hero-title">{{ detail.name || show.title }}</text>
           <text class="hero-en" v-if="show.titleEn && show.titleEn !== show.title">{{ show.titleEn }}</text>
 
           <!-- 评分 -->
@@ -99,9 +99,9 @@
       </view>
 
       <!-- 简介 -->
-      <view class="card" v-if="show.overview">
+      <view class="card" v-if="detail && detail.overview">
         <view class="card-title">剧情简介</view>
-        <text :class="['overview', overviewExpanded ? '' : 'collapsed']">{{ show.overview }}</text>
+        <text :class="['overview', overviewExpanded ? '' : 'collapsed']">{{ detail.overview }}</text>
         <text class="expand-btn" @click="overviewExpanded = !overviewExpanded">
           {{ overviewExpanded ? '收起 ▲' : '展开全文 ▼' }}
         </text>
@@ -172,7 +172,7 @@
 
     <!-- 打卡弹窗 -->
     <view class="modal-mask" v-if="showCheckinModal" @click.self="showCheckinModal = false">
-      <view class="modal-card">
+      <view class="modal-card" @click.stop>
         <text class="modal-title">为 S{{ currentSeason }}E{{ currentEpisode }} 打卡</text>
         <!-- 心情 -->
         <view class="mood-row">
@@ -200,7 +200,7 @@
 </template>
 
 <script>
-import { getTVDetail, formatCount } from '../../utils/api.js'
+import { getTVDetail, getTVSeason, formatCount } from '../../utils/api.js'
 import { WATCH_PLATFORMS } from '../../utils/config.js'
 import { getWatchItem, setWatchStatus, updateProgress, addCheckin, getCheckins } from '../../store/user.js'
 
@@ -290,7 +290,10 @@ export default {
       uni.showToast({ title: label + ' ✓', icon: 'none' })
     },
 
-    onSeasonChange(e) { this.currentSeason = e.detail.value + 1 },
+    onSeasonChange(e) {
+      const selectedSeason = e.detail.value + 1
+      this.loadSeason(selectedSeason)
+    },
 
     changeEp(delta) {
       const val = Math.max(0, this.currentEpisode + delta)
@@ -335,9 +338,19 @@ export default {
       }
     },
 
-    loadSeason(num) {
-      this.currentSeason = num
-      uni.showToast({ title: `切换到第${num}季`, icon: 'none' })
+    async loadSeason(num) {
+      if (num === this.currentSeason && this.detail.episodes) return
+      uni.showLoading({ title: `正在加载第${num}季...` })
+      try {
+        const seasonDetail = await getTVSeason(this.show.tmdbId, num)
+        this.detail = { ...this.detail, ...seasonDetail }
+        this.currentSeason = num
+        uni.pageScrollTo({ scrollTop: 0, duration: 100 }); // Scroll to top for better UX
+      } catch (e) {
+        uni.showToast({ title: '加载失败', icon: 'none' })
+      } finally {
+        uni.hideLoading()
+      }
     },
 
     copyPlatformSearch(platform) {
